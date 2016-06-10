@@ -1,0 +1,66 @@
+@import url(//fonts.googleapis.com/css?family=Lato:700);
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+
+#side_bar {
+    position: absolute;
+    margin: 0px 0px 0px 0px;
+    background: white;
+    color: rgba(0, 0, 0, 0.61);
+    float: right;
+    width: 300px;
+    height: 100%;
+    right: 0px;
+    box-shadow: 0px 0px 15px black;
+}
+
+#side_slider {
+    z-index: 100;
+    position: absolute;
+    background: white;
+    float: right;
+    right: 290px;
+    top: 50%;
+    width: 10px;
+}
+
+.slider-array {
+    float: left;
+    font-size: 2em;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.64);
+}
+
+.slider-array:hover {
+    color: black;
+}
+
+#inner_side_container {
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.navigation-btn {
+    background-color: green;
+}
+
+.report-btn {
+    background-color: red;
+}

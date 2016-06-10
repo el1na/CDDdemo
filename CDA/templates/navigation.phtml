@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>Google Maps Javascript API v3 Example: Adding a clickable sidebar</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <script type="text/javascript" src="js/maps.js"></script>
+    <script type="text/javascript" src="js/ajax.js"></script>
+    <script type="text/javascript" src="js/site.js"></script>
+</head>
+<body style="margin:0px; padding:0px;" onload="initialize()">
+
+<div id="map"></div>
+<div id="side_slider" class="hide"><a href="javascript:void(0);" class="slider-array">&raquo;</a></div>
+<div id="side_bar">
+
+    <div id="inner_side_container">
+        <p>Using as <span id="employee_id"><?php echo $employeeId; ?></span></p>
+
+        <form id="employee_id_form" class="pure-form pure-form-stacked">
+            <fieldset>
+                <legend>Change employee ID</legend>
+                <input required type="text" name="employeeId" placeholder="Employee ID"><br>
+                <input type="submit" value="Change" id="employee_id_btn" class="pure-button pure-button-primary">
+            </fieldset>
+        </form>
+
+        <form class="pure-form pure-form-stacked">
+            <fieldset>
+                <legend>Show today's route</legend>
+                <input type="submit" value="Show" id="route_loader_btn" class="pure-button pure-button-primary">
+            </fieldset>
+        </form>
+
+        <form class="pure-form pure-form-stacked">
+            <fieldset>
+                <legend>Start navigation</legend>
+                <input type="submit" value="Navigate" id="navigation_btn"
+                       class="pure-button pure-button-primary navigation-btn">
+
+            </fieldset>
+        </form>
+
+        <form class="pure-form pure-form-stacked">
+            <fieldset>
+                <legend>Report an accident</legend>
+                <input type="submit" value="Report" id="accident_report_btn"
+                       class="pure-button pure-button-primary report-btn">
+            </fieldset>
+        </form>
+
+    </div>
+</div>
+
+<noscript><p><b>JavaScript must be enabled in order for you to use Google Maps.</b>
+        However, it seems JavaScript is either disabled or not supported by your browser.
+        To view Google Maps, enable JavaScript by changing your browser options, and then
+        try again.</p>
+</noscript>
+
+</body>
+</html>
