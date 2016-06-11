@@ -63,7 +63,6 @@ private function updateGraph() {
    ");
      $stmt->bindParam(':trafficIntensityData', $this->trafficIntensityJsonCtx, PDO::PARAM_STR);
      $stmt->execute();
-
 }
 
 public function execute()
@@ -75,8 +74,8 @@ public function execute()
 
    //run shortest path with costs as weighted function
 
-   $costs_function = '__safety_norm * '. $this->weightsArray->safety_weight. '::double precision'
-      .' +  __isleft_norm           * '. $this->weightsArray->isLeftTurn_weight. '::double precision'
+   $costs_function = '__safety_norm  * '. $this->weightsArray->safety_weight. '::double precision'
+      .' +  __isleft_norm            * '. $this->weightsArray->isLeftTurn_weight. '::double precision'
       .' +  __fuel_consumption_norm  * '. $this->weightsArray->fuel_consumption_weight. '::double precision'
       .' +  __traffic_intensity_norm * '. $this->weightsArray->traffic_intensity_weight. '::double precision'
       .' +  __distance_norm          * '. $this->weightsArray->distance_weight. '::double precision'
@@ -84,7 +83,8 @@ public function execute()
 
   $sql = 'select id, from_id as source, to_id as target, ('.$costs_function.') as cost from hw_lat.riga_elg_clean';
 
-/*  $stmt = $dbCon->prepare("
+/* //old without function that inserts into routes table
+$stmt = $dbCon->prepare("
   create table hw_lat.test1 as
       select d.seq, st_startPoint(t1.way_geom) as geom, t1.name, d.cost as cost, t1.length as distance, t1.turn_type
     from hw_lat.riga_elg_clean t1,
@@ -93,9 +93,9 @@ public function execute()
     order by d.seq
   ");*/
 
-  $stmt = $dbCon->prepare("
+  $stmt = $dbCon->prepare('
   select * from  hw_lat.bestRoute(:sql , :sourceid , :targetid )
-  ");
+  ');
 
   $stmt->bindParam(':sql', $sql, PDO::PARAM_STR);
   $stmt->bindParam(':sourceid', $this->source, PDO::PARAM_INT);
